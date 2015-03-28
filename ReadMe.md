@@ -8,9 +8,13 @@ There are some "two-colour" ones, but these are simply a different (fixed) colou
 Interfacing is trivial, and they seem to work fine on 3.3V and 5V.
 On arduino (V-GPIO) the arduino's high-value pullups seem to work OK without anything added.
 
-The text, font, image and graphic work is handled by the PIL python module(s),
-and ttf font files from anywhere work fine, at any scaling. 1-bit BMP or PNG images can be displayed.
+The text, font, image and graphic work is handled by the Python Imaging Library,
+and ttf or other font files from anywhere work fine, at any scaling. 1-bit BMP or PNG images can be displayed.
 
-This library has been evolved from R Hull's very fine library at
+"PIL" is wonderfully versatile and competent for "writing/drawing" to a display like this.
+However, PIL is available for download to Raspberry Pi and Windows for python 2.7 only, and not for python3,
+Conclusion: stay with python 2.7 for this project.
+
+This library has been evolved from RM Hull's very fine library at
 https://github.com/rm-hull/ssd1306
-If you simply want to use it on Raspberry Pi, Hull's version may well suit you better.
+If you simply want to use it on Raspberry Pi, the Hull version may well suit you better.
