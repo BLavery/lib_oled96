@@ -12,7 +12,7 @@ The text, font, image and graphic work is handled by the Python Imaging Library,
 and ttf or other font files from anywhere work fine, at any scaling. 1-bit BMP or PNG images can be displayed.
 
 "PIL" is wonderfully versatile and competent for "writing/drawing" to a display like this.
-However, PIL is available for download to Raspberry Pi and Windows for python 2.7 only, and not for python3,
+However, PIL is available for download to Raspberry Pi and Windows for python 2.7 only, and not for python3.
 Conclusion: stay with python 2.7 for this project.
 
 This library has been evolved from RM Hull's very fine library at
