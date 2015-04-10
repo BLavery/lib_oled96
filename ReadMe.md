@@ -18,3 +18,7 @@ Conclusion: stay with python 2.7 for this project.
 This library has been evolved from RM Hull's very fine library at
 https://github.com/rm-hull/ssd1306
 If you simply want to use it on Raspberry Pi, the Hull version may well suit you better.
+
+
+And, oh yes, some eBay versions might look very similar, but they don't necessarily have same pin order.
+I have two with swapped VCC and GND. Oops!
