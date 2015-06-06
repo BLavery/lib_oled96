@@ -31,7 +31,7 @@ class ssd1306():
         self.addr = address
         self.width = 128
         self.height = 64
-        self.pages = self.height / 8
+        self.pages = int(self.height / 8)
         self.image = Image.new('1', (self.width, self.height))
         self.canvas = ImageDraw.Draw(self.image) # this is a "draw" object for preparing display contents
 
@@ -70,7 +70,7 @@ class ssd1306():
         In our library, only data operation used is 128x64 long, ie whole canvas.
         """
 
-        for i in xrange(0, len(data), 31):
+        for i in range(0, len(data), 31):
             self.bus.write_i2c_block_data(self.addr, self.data_mode, list(data[i:i+31]))
 
 
@@ -87,11 +87,11 @@ class ssd1306():
         pix = list(self.image.getdata())
         step = self.width * 8
         buf = []
-        for y in xrange(0, self.pages * step, step):
+        for y in range(0, self.pages * step, step):
             i = y + self.width-1
             while i >= y:
                 byte = 0
-                for n in xrange(0, step, self.width):
+                for n in range(0, step, self.width):
                     byte |= (pix[i + n] & 0x01) << 8
                     byte >>= 1
 
