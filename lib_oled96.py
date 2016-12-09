@@ -85,18 +85,17 @@ class ssd1306():
             const.PAGEADDR,   0x00, self.pages-1)  # Page start/end address
 
         pix = list(self.image.getdata())
-        step = self.width * 8
         buf = []
-        for y in range(0, self.pages * step, step):
-            i = y + self.width-1
-            while i >= y:
-                byte = 0
-                for n in range(0, step, self.width):
-                    byte |= (pix[i + n] & 0x01) << 8
-                    byte >>= 1
 
-                buf.append(byte)
-                i -= 1
+        def make_byte(*lines):
+            # Even though self.image is B/W, the pixel value is sometimes set to 255 instead of 1
+            return ((lines[7] & 1) << 7 | (lines[6] & 1) << 6 | (lines[5] & 1) << 5
+                | (lines[4] & 1) << 4 | (lines[3] & 1) << 3 | (lines[2] & 1) << 2
+                | (lines[1] & 1) << 1 | (lines[0] & 1))
+
+        lines = [pix[i:i + self.width] for i in xrange(0, self.width * self.height, self.width)]
+        for l in range(0, self.height, 8):
+            buf.extend(reversed(map(make_byte, *lines[l:l + 8])))
 
         self._data(buf) # push out the whole lot
 
