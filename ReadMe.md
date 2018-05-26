@@ -1,3 +1,6 @@
+## May 2018 - This is no longer being maintained by the original author.
+## Please feel free to fork, copy, adapt if you find it useable
+
 A python library for I2C 0.96" 128x64 OLED display using SSD1306 chip.
 A common library suiting both Raspberry Pi and Virtual-GPIO.
 
